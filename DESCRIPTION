@@ -1,0 +1,24 @@
+Package: Rmagine
+Title: Image Manipulation Package
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Katie",
+           family = "Birchard",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+    person(given = "Trevor",
+           family = "Kwan",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+    person(given = "Brendon",
+           family = "Campbell",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+    person(given = "Sukriti",
+           family = "Trehan",
+           role = c("aut", "cre"),
+           email = "sukriti1394@gmail.com")
+Description: Image Manipulation Package
+License: MIT
+Encoding: UTF-8
+LazyData: true
