@@ -19,6 +19,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "sukriti1394@gmail.com")
 Description: Image Manipulation Package
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat
