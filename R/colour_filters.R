@@ -1,6 +1,6 @@
 # Created on February 26, 2020
 # author: Sukriti Trehan
-# Implementation of colour_filters function in the pymagine package.
+# Implementation of colour_filters function in the Rmagine package.
 
 
 #' Apply colour filter to given image
