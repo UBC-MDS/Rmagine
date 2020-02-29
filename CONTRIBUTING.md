@@ -1,29 +1,101 @@
-# Contributing
+## Contributing
+
+Contributions are welcome, and they are greatly appreciated! Every little bit
+helps, and credit will always be given.
+
+You can contribute in many ways:
+
+## Types of Contributions
 
 
-We love to accept contributions from anyone. By participating in this project, you
-agree to abide by our [Code of Conduct](https://github.com/UBC-MDS/Rmagine/blob/master/CONDUCT.md).
+### Report Bugs
 
-First
+Report bugs at https://github.com/UBC-MDS/Rmagine/issues.
 
-Fork, then clone the repo:
+If you are reporting a bug, please include:
 
-    git clone https://github.com/UBC-MDS/Rmagine
+* Your operating system name and version.
+* Any details about your local setup that might be helpful in troubleshooting.
+* Detailed steps to reproduce the bug.
 
-Add upstream:
+### Fix Bugs
 
-    git remote add upstream https://github.com/UBC-MDS/Rmagine.git
+Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
+wanted" is open to whoever wants to implement it.
 
+### Implement Features
 
-Merge potential changes in upstream:
+Look through the GitHub issues for features. Anything tagged with "enhancement"
+and "help wanted" is open to whoever wants to implement it.
 
-    git fetch upstream
-    git merge upstream/master
-    git push
+### Write Documentation
 
-Finally send us a pull request
+edar could always use more documentation, whether as part of the
+official edar docs, in docstrings, or even on the web in blog posts,
+articles, and such.
 
-We will then review your pull request and get back to you as soon as possible.
+### Submit Feedback
 
-Attribution:
-This contribution guideline is drawn from [CONTRIBUTING.md](https://github.com/UBC-MDS/RSyntext/blob/master/CONTRIBUTION.md).
+The best way to send feedback is to file an issue at https://github.com/UBC-MDS/Rmagine/issues.
+
+If you are proposing a feature:
+
+* Explain in detail how it would work.
+* Keep the scope as narrow as possible, to make it easier to implement.
+* Remember that this is a volunteer-driven project, and that contributions
+  are welcome :)
+
+## Get Started!
+
+Ready to contribute? Here's how to set up `Rmagine` for local development.
+
+1. Fork the `Rmagine` repo on GitHub.
+
+2. Clone your fork locally:
+
+	```
+	git clone https://github.com/UBC-MDS/Rmagine.git
+	```
+
+3. Create a branch for local development:
+
+	```
+	cd Rmagine/
+	git checkout -b name-of-your-bugfix-or-feature
+	```
+
+   	Now you can make your changes locally.
+
+4. When you're done making changes, check that your changes pass the tests by running 'check()`:
+
+	```
+	check()
+	```
+
+5. Commit your changes and push your branch to GitHub:
+
+	```
+	git add .
+	git commit -m "Your detailed description of your changes."
+	git push origin name-of-your-bugfix-or-feature
+	```
+
+7. Submit a pull request through the GitHub website.
+
+## Pull Request Guidelines
+
+Before you submit a pull request, check that it meets these guidelines:
+
+1. The pull request should include tests.
+2. If the pull request adds functionality, the docs should be updated. Put
+   your new functionality into a function with a docstring, and add the
+   feature to the list in README.md.
+3. The pull request should work for R 3.6+. Check https://github.com/UBC-MDS/Rmagine/pulls and make sure that the tests pass for all supported R versions.
+
+## Code of Conduct
+
+Please note that the edar project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
+
+## Attribution
+
+The CONTRIBUTING.md file was adapted from [Python's Cookiecutter package](https://github.com/audreyr/cookiecutter-pypackage). 
