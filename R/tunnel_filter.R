@@ -15,6 +15,23 @@
 
 tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   
+  # Exception handling
+  if(!is.character(image_path)) {
+    stop("Image file path must be a string")
+  }
+  
+  if(!is.numeric(k)) {
+    stop("Distortion coefficient, k, must be numeric")
+  }
+  
+  if(!is.numeric(rot)) {
+    stop("Rotation degree, rot, must be numeric")
+  }
+  
+  if(rot > 0.5 OR rot < -0.5) {
+    stop("Rotation degree must be between -0.5 and 0.5")
+  }
+  
   # Read in the image file
   image <- imager::load.image(image_path)
   
