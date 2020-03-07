@@ -60,4 +60,5 @@ vignette_filter <- function(image_path, strength=1.0) {
 
   vignette_image <- as.cimg(vignette_array)
   imager::save.image(vignette_image,"vignette.jpeg")
+  print("The filtered image has been saved to the working directory.")
 }
