@@ -20,6 +20,14 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
     stop("Image file path must be a string")
   }
   
+  if(!endsWith(".jpg") & !endsWith(".jpeg") & !endsWith(".png")) {
+    stop("Image file path should lead to an image")
+  }
+  
+  if(startsWith("https:") | startsWith("http:") | startsWith("www") {
+    stop("Image file path must be in a local directory")
+  })
+  
   if(!is.numeric(k)) {
     stop("Distortion coefficient, k, must be numeric")
   }
