@@ -47,4 +47,6 @@ edge_detection <- function(image_path){
   # save image as edge_detection_image.jpg
   save.image(image, "edge_detection_image.jpg")
   
+  print("The filtered image has been saved to the working directory")
+  
 }
