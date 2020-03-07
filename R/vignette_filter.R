@@ -4,13 +4,13 @@
 
 #' Apply a vignetting filter to a given image
 #'
-#' Returns the given image with the vignette filter applied at the specified strength.
+#' Saves the given image with the vignette filter applied at the specified strength.
 #'
 #' @param image_path string: The local file path for the image to which the filter will be applied.
 #' @param strength double: parameter for the strength of the dimming effect. Default: 1.0.
 #'
-#' @return image: image returned with desired distortion applied.
-#' @export
+#' @return
+#' @export image: image saved to working directory with desired distortion applied.
 
 vignette_filter <- function(image_path, strength=1.0) {
 
@@ -36,7 +36,7 @@ vignette_filter <- function(image_path, strength=1.0) {
   rows <- height(image)
 
   original_array <- as.array(image)
-  tunnel_array <- as.array(image)
+  vignette_array <- as.array(image)
 
   # calculate stdev of the gaussian based on strength parameter
   sigma <- ((rows + cols)/((1+strength)/1))/2
@@ -53,12 +53,11 @@ vignette_filter <- function(image_path, strength=1.0) {
   for (c in 1:3) {
     for (x in 1:cols) {
       for (y in 1:rows) {
-        tunnel_array[x, y, 1, c] <- original_array[x, y, 1, c]*filt_2d_df[y, x]
+        vignette_array[x, y, 1, c] <- original_array[x, y, 1, c]*filt_2d_df[y, x]
       }
     }
   }
 
-  tunnel_image <- as.cimg(tunnel_array)
-  #plot(tunnel_image)
-  #imager::save.image(tunnel_image,"vig.jpeg")
+  vignette_image <- as.cimg(vignette_array)
+  imager::save.image(vignette_image,"vignette.jpeg")
 }
