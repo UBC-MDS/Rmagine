@@ -80,8 +80,8 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   # Convert array to image
   tunnel_image <- as.cimg(tunnel_array)
   
-  # Plot image
-  plot(tunnel_image)
+  # Save image
+  # plot(tunnel_image)
   imager::save.image(tunnel_image, "tunnel.jpg")
 }
   
