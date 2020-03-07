@@ -83,5 +83,6 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   # Save image
   # plot(tunnel_image)
   imager::save.image(tunnel_image, "tunnel.jpg")
+  print("The filtered image has been saved to the working directory")
 }
   
