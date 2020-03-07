@@ -67,10 +67,13 @@ colour_filters <- function(image, tone="grayscale"){
   }
 
   else if(tolower(tone) == "negative"){
-    imager::save.image(255-im %>% grayscale(), "colour_filter.jpeg")
+    imager::save.image(255-im %>% imager::grayscale(), "colour_filter.jpeg")
   }
 
   else {
-    imager::save.image(grayscale(im), "colour_filter.jpeg")
+    imager::save.image(imager::grayscale(im), "colour_filter.jpeg")
   }
+  print("The filtered image has been saved to the working directory")
 }
+
+
