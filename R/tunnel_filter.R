@@ -10,7 +10,7 @@
 #' @param k double: Distortion coefficient. Default: 0.5.
 #' @param rot double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.
 #' 
-#' @return 
+#' @return location of saved image with filter applied.
 #' @export image: image returned to working directory with desired distortion applied.
 
 tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
