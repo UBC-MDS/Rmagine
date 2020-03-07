@@ -5,14 +5,46 @@
 
 #' Apply edge detection to given image
 #'
-#' Returns the given image with the user-specified edge detection applied.
+#' Returns the given image with greyscale edge detection applied.
 #'
-#' @param image string: The local file path for image to which filter will be applied.
-#' @param tone string: Color of edge detection filter to be applied to the image. Options: 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds'. Default: 'Greys'
+#' @param image_path string: The local file path for an image of png, jpg, or jpeg format to which edge detection filter will be applied.
 #'
-#' @return image: image returned with desired edge detection color filter applied
-#' @export
+#' @return 
+#' @export image: greyscale image returned with edge detection and saved as "edge_detection_image.jpg"
 
-edge_detection <- function(image, color="Greys"){
+require(imager)
+
+edge_detection <- function(image_path){
+  
+  # Exception handling
+  if(!is.character(image_path)) {
+    stop("Image file path must be a string")
+  }
+  
+  if (!endsWith(image_path, ".png") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".jpg")){
+    stop("Image format must be png, jpg, or jpeg.")
+  }
+  
+  if (startsWith(image_path, "http") | startsWith(image_path, "www")){
+    stop("Image file path can't be a URL, provide a local file path.")
+  }
+  
+  # load greyscale image
+  image <- load.image(image_path)
+  
+  # convert image into grayscale image
+  image <- grayscale(image)
+  
+  # compute an image gradient
+  gradient <- imgradient(image,"xy")
+  
+  # compute the gradient magnitude
+  magnitude <- with(gradient,sqrt(x^2+y^2))
+  
+  # take the threshold of the magnitude and convert it to an image
+  image <- as.cimg(threshold(magnitude))
+  
+  # save image as edge_detection_image.jpg
+  save.image(image, "edge_detection_image.jpg")
   
 }
