@@ -1,7 +1,7 @@
 # Load helper image
 test_image <- "../imgs/coronado_beach.png"
 test_not_image <- "../imgs/coronado_beach.svg"
-test_image_url <- "www.image.com"
+test_image_url <- "www.image.jpg"
 
 test_that("Filepath must be a string", {
   expect_error(tunnel_filter(4), 
