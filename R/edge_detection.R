@@ -21,12 +21,12 @@ edge_detection <- function(image_path){
     stop("Image file path must be a string")
   }
   
-  if (!endsWith(image_path, ".png") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".jpg")){
-    stop("Image format must be png, jpg, or jpeg.")
-  }
-  
   if (startsWith(image_path, "http") | startsWith(image_path, "www")){
     stop("Image file path can't be a URL, provide a local file path.")
+  }
+  
+  if (!endsWith(image_path, ".png") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".jpg")){
+    stop("Image format must be png, jpg, or jpeg.")
   }
   
   # load greyscale image

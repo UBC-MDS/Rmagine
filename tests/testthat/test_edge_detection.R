@@ -10,10 +10,10 @@ test_that("Filepath must be a string", {
 
 test_that("Filepath must lead to an image", {
   expect_error(edge_detection(test_not_image),
-               "Image file path should lead to an image")
+               "Image format must be png, jpg, or jpeg.")
 })
 
 test_that("Filepath must not be a URL", {
   expect_error(edge_detection(test_image_url),
-               "Image file path must be in a local directory")
+               "Image file path can't be a URL, provide a local file path.")
 })
