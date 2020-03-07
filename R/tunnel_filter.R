@@ -10,8 +10,8 @@
 #' @param k double: Distortion coefficient. Default: 0.5.
 #' @param rot double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.
 #' 
-#' @return image: image returned with desired distortion applied.
-#' @export
+#' @return 
+#' @export image: image returned to working directory with desired distortion applied.
 
 tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   
@@ -20,13 +20,13 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
     stop("Image file path must be a string")
   }
   
-  if(!endsWith(".jpg") & !endsWith(".jpeg") & !endsWith(".png")) {
+  if(!endsWith(image_path, ".jpg") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".png")) {
     stop("Image file path should lead to an image")
   }
   
-  if(startsWith("https:") | startsWith("http:") | startsWith("www") {
+  if(startsWith(image_path, "https:") | startsWith(image_path, "http:") | startsWith(image_path, "www")) {
     stop("Image file path must be in a local directory")
-  })
+  }
   
   if(!is.numeric(k)) {
     stop("Distortion coefficient, k, must be numeric")
@@ -36,7 +36,7 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
     stop("Rotation degree, rot, must be numeric")
   }
   
-  if(rot > 0.5 OR rot < -0.5) {
+  if(rot > 0.5 | rot < -0.5) {
     stop("Rotation degree must be between -0.5 and 0.5")
   }
   
@@ -82,5 +82,6 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   
   # Plot image
   plot(tunnel_image)
+  imager::save.image(tunnel_image, "tunnel.jpg")
 }
   
