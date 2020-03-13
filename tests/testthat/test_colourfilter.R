@@ -2,6 +2,7 @@
 # Applies tests to the colour_filters function to ensure proper usage.
 
 library(testthat)
+library(imager)
 
 context("colour_filters")
 
