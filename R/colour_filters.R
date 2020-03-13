@@ -12,6 +12,7 @@
 #'
 #' @return image: image returned with desired colour filter applied
 #' @export
+#' @importFrom magrittr %>%
 
 colour_filters <- function(image, tone="grayscale"){
 
