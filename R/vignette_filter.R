@@ -11,6 +11,9 @@
 #'
 #' @return array: image array with the desired distortion applied.
 #' @export
+#'
+#' @example
+#' vignette_filter("imgs/pic.jpg", strength=2.5)
 
 vignette_filter <- function(image_path, strength=1.0) {
 
