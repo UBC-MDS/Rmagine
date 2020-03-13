@@ -24,4 +24,6 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     imager,
-    testthat
+    testthat,
+    magrittr
+RoxygenNote: 7.0.2
