@@ -10,7 +10,7 @@
 #' @param strength double: parameter for the strength of the dimming effect. Default: 1.0.
 #'
 #' @return array: image array with the desired distortion applied.
-#' @export image: image saved to working directory with desired distortion applied.
+#' @export
 
 vignette_filter <- function(image_path, strength=1.0) {
 
