@@ -11,10 +11,13 @@
 #'
 #' @return array: image array with edge_detection filter applied.
 #' @export 
+#' @example 
+#' edge_detection("imgs/pic.jpg")
 
 require(imager)
 require(base)
-utils::globalVariables(c(x, y))
+utils::globalVariables(c("x","y"))
+utils::globalVariables(c("xy"))
 
 edge_detection <- function(image_path){
   
