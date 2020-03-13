@@ -5,12 +5,13 @@
 
 #' Apply colour filter to given image
 #'
-#' Saves the given image to the working directory with the user-specified color filter applied.
+#' Saves the given image in the current working directory with the
+#' user-specified color filter applied and returns the altered image array.
 #'
 #' @param image string: The local file path for image to which filter will be applied
 #' @param tone string: Colour filter to be applied to the image. Options:'grayscale', 'blue_tone', 'green_tone', 'red_tone', 'negative'. Default: 'grayscale'
 #'
-#' @return image: image returned with desired colour filter applied
+#' @return array: altered image array returned for the input colour filter
 #' @export
 #' @importFrom magrittr %>%
 
@@ -69,12 +70,15 @@ colour_filters <- function(image, tone="grayscale"){
 
   else if(tolower(tone) == "negative"){
     imager::save.image(255-im %>% imager::grayscale(), "colour_filter.jpeg")
+    im_array <- as.array(255-im)
   }
 
   else {
+    im_array <- as.array(imager::grayscale(im))
     imager::save.image(imager::grayscale(im), "colour_filter.jpeg")
   }
   print("The filtered image has been saved to the working directory")
+  return(im_array)
 }
 
 
