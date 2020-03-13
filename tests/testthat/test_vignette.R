@@ -1,7 +1,11 @@
 # This script tests the vignette function
 library(testthat)
 
-context("Vignette")
+context("vignette_filter")
+
+test_image <- "../imgs/coronado_beach.png"
+bad_test_image <- "../imgs/coronado_beach.csv"
+test_image_url <- "https://upload.wikimedia.org/wikipedia/Python-logo-notext.svg"
 
 test_that("Test that the input parameters are valid", {
   expect_error(vignette_filter(image_path=5),
@@ -17,4 +21,10 @@ test_that("Test that the input parameters are valid", {
 test_that("Test that image loads succesfully", {
   expect_error(vignette_filter(image_path='invalid_input_path.png',strength=1.0),
                "File not found")
+})
+
+returned_arr_vignette <- vignette_filter(test_image)
+
+test_that("Test for correct dimensions of output array", {
+  expect_equal(dim(returned_arr_vignette), dim(load.image('../imgs/coronado_beach.png')))
 })
