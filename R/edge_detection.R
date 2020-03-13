@@ -9,10 +9,11 @@
 #'
 #' @param image_path string: The local file path for an image of png, jpg, or jpeg format to which edge detection filter will be applied.
 #'
-#' @return 
-#' @export image: greyscale image returned with edge detection and saved as "edge_detection_image.jpg"
+#' @return array: image array with edge_detection filter applied.
+#' @export 
 
 require(imager)
+require(base)
 
 edge_detection <- function(image_path){
   
@@ -26,27 +27,29 @@ edge_detection <- function(image_path){
   }
   
   if (!endsWith(image_path, ".png") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".jpg")){
-    stop("Image format must be png, jpg, or jpeg.")
+    stop("Image format must be jpg or jpeg.")
   }
   
   # load greyscale image
-  image <- load.image(image_path)
+  image <- imager::load.image(image_path)
   
   # convert image into grayscale image
-  image <- grayscale(image)
+  image <- imager::grayscale(image)
   
   # compute an image gradient
-  gradient <- imgradient(image,"xy")
+  gradient <- imager::imgradient(image,"xy")
   
   # compute the gradient magnitude
-  magnitude <- with(gradient,sqrt(x^2+y^2))
+  magnitude <- base::with(gradient,sqrt(x^2+y^2))
   
   # take the threshold of the magnitude and convert it to an image
-  image <- as.cimg(threshold(magnitude))
+  image <- imager::as.cimg(imager::threshold(magnitude))
   
   # save image as edge_detection_image.jpg
-  save.image(image, "edge_detection_image.jpg")
+  imager::save.image(image, "edge_detection_image.jpg")
   
   print("The filtered image has been saved to the working directory")
+  
+  return(image)
   
 }
