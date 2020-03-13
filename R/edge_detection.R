@@ -14,7 +14,7 @@
 
 require(imager)
 require(base)
-utils::globalVariables(c("."))
+utils::globalVariables(c(x, y))
 
 edge_detection <- function(image_path){
   
