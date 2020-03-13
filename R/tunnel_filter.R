@@ -1,19 +1,21 @@
 # Created on February 28, 2020
 # author: Katie Birchard
 # Implementation of the tunnel distortion filter in the Rmagine package.
-
+#'
 #' Apply tunnel distortion filter to a given image.
 #' 
 #' Returns the given image with the user-specified distortion applied.
 #' 
 #' @param image_path string: the local file path for the image to which the filter will be applied.
-#' @param k double: Distortion coefficient. Default: 0.5.
 #' @param rot double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.
 #' 
 #' @return location of saved image with filter applied.
-#' @export image: image returned to working directory with desired distortion applied.
+#' @export 
+#' 
+#' @example 
+#' tunnel_filter("imgs/pic.jpg", rot=0.2)
 
-tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
+tunnel_filter <- function(image_path, rot=0.5) {
   
   # Exception handling
   if(!is.character(image_path)) {
@@ -28,10 +30,6 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
     stop("Image file path must be in a local directory")
   }
   
-  if(!is.numeric(k)) {
-    stop("Distortion coefficient, k, must be numeric")
-  }
-  
   if(!is.numeric(rot)) {
     stop("Rotation degree, rot, must be numeric")
   }
@@ -44,8 +42,8 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
   image <- imager::load.image(image_path)
   
   # Obtain width and height
-  w <- width(image)
-  h <- height(image)
+  w <- imager::width(image)
+  h <- imager::height(image)
   
   # Convert image to array and specify output array
   original_array <- as.array(image)
@@ -65,8 +63,8 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
         
         # Calculate radius and normalize
         r = sqrt(norm_x^2 + norm_y^2)/max_radius
-        x2 = norm_x / (1 + (k*(r^4) + k*(r^2) + k*r))
-        y2 = norm_y/ (1 + (k*(r**4) + k*(r**2) + k*r))
+        x2 = norm_x / (1 + (0.5*(r^4) + 0.5*(r^2) + 0.5*r))
+        y2 = norm_y/ (1 + (0.5*(r**4) + 0.5*(r**2) + 0.5*r))
         
         # Creating variables for distortion and rotation
         x3 = ((rot*cos(atan2(x2, y2)) + 1)*w)/2.0
@@ -78,11 +76,12 @@ tunnel_filter <- function(image_path, k=0.5, rot=0.5) {
     }
   }
   # Convert array to image
-  tunnel_image <- as.cimg(tunnel_array)
+  tunnel_image <- imager::as.cimg(tunnel_array)
   
   # Save image
   # plot(tunnel_image)
   imager::save.image(tunnel_image, "tunnel.jpg")
-  print("The filtered image has been saved to the working directory")
+  #print("The filtered image has been saved to the working directory")
+  return(tunnel_array)
 }
   
