@@ -9,8 +9,8 @@
 #' @param image_path string: The local file path for the image to which the filter will be applied.
 #' @param strength double: parameter for the strength of the dimming effect. Default: 1.0.
 #'
-#' @return
-#' @export image: image saved to working directory with desired distortion applied.
+#' @return array: image array with the desired distortion applied.
+#' @export
 
 vignette_filter <- function(image_path, strength=1.0) {
 
@@ -32,8 +32,8 @@ vignette_filter <- function(image_path, strength=1.0) {
 
   # read in image from path
   image <- imager::load.image(image_path)
-  cols <- width(image)
-  rows <- height(image)
+  cols <- imager::width(image)
+  rows <- imager::height(image)
 
   original_array <- as.array(image)
   vignette_array <- as.array(image)
@@ -42,8 +42,8 @@ vignette_filter <- function(image_path, strength=1.0) {
   sigma <- ((rows + cols)/((1+strength)/1))/2
 
   # generate gaussian filters for each axis
-  filt_cols <- dnorm(seq.int(1, cols), mean = cols/2, sd = sigma)
-  filt_rows <- dnorm(seq.int(1, rows), mean = rows/2, sd = sigma)
+  filt_cols <- stats::dnorm(seq.int(1, cols), mean = cols/2, sd = sigma)
+  filt_rows <- stats::dnorm(seq.int(1, rows), mean = rows/2, sd = sigma)
 
   # create and scale 2d vignette filter
   filt_2d <- filt_rows %*% t(filt_cols)
@@ -61,4 +61,6 @@ vignette_filter <- function(image_path, strength=1.0) {
   vignette_image <- imager::as.cimg(vignette_array)
   imager::save.image(vignette_image,"vignette.jpeg")
   print("The filtered image has been saved to the working directory.")
+
+  return(vignette_image)
 }
