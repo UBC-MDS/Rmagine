@@ -1,5 +1,6 @@
 # This script tests the vignette function
 library(testthat)
+library(imager)
 
 context("vignette_filter")
 
