@@ -13,6 +13,10 @@
 #'
 #' @return array: altered image array returned for the input colour filter
 #' @export
+#'
+#' @example
+#' colour_filters("../tests/imgs/coronado_beach.jpeg", tone="red_tone")
+#'
 #' @importFrom magrittr %>%
 
 colour_filters <- function(image, tone="grayscale"){
