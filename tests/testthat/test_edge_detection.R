@@ -1,5 +1,6 @@
 # This script tests the edge_detection function
 library(testthat)
+library(imager)
 
 context("edge_detection")
 
@@ -26,5 +27,5 @@ test_that("Filepath must not be a URL", {
 returned_arr_edge_detection <- edge_detection(test_image)
 
 test_that("Test for correct dimensions of output array", {
-  expect_equal(dim(returned_arr_edge_detection), dim(grayscale(load.image('../imgs/coronado_beach.jpeg'))))
+  expect_equal(dim(returned_arr_edge_detection), dim(imager::grayscale(imager::load.image('../imgs/coronado_beach.jpeg'))))
 })
