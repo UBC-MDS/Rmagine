@@ -49,7 +49,7 @@ devtools::install_github("UBC-MDS/Rmagine")
 
 For additional documentation and usage examples please refer to the
 [Introduction to image filtering with
-Rmagine](https://htmlpreview.github.io/vignettes/Rmagine-vignette.html)
+Rmagine](http://htmlpreview.github.com/?https://github.com/UBC-MDS/Rmagine/blob/brendon-vignette/vignettes/Rmagine-vignette.html)
 page.
 
 ### Using the Vignette Filter
