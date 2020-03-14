@@ -31,7 +31,6 @@ tunnel_filter(image_path, rot)
 #### Arguments
 
 - `image_path`: file path of the input image (string)
-- `k`: distortion coefficient (float, optional). If not specified, defaults to 0.5
 - `rot`: rotation degree holding value between -0.5 and 0.5 (float, optional). If not specified, defaults to 0.5
 
 #### Output
