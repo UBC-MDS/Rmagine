@@ -1,6 +1,8 @@
 
 # Rmagine
 
+[![codecov](https://codecov.io/gh/UBC-MDS/Rmagine/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Rmagine)
+
 ## Package Overview & Scope
 
 This package includes functions that provide several different types of
