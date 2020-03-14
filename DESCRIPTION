@@ -24,7 +24,8 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     imager,
-    testthat
+    testthat,
+    magrittr
 Suggests: 
     covr
 URL: https://github.com/UBC-MDS/Rmagine
