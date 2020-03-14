@@ -2,6 +2,7 @@
 # Rmagine
 
 [![codecov](https://codecov.io/gh/UBC-MDS/Rmagine/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Rmagine)
+![R-CMD-check](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg)
 
 ## Package Overview & Scope
 
