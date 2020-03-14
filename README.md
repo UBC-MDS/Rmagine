@@ -1,10 +1,6 @@
 
 # Rmagine
 
-  <!-- badges: start -->
-  [![R build status](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/Rmagine/actions)
-  <!-- badges: end -->
-
 ## Package Overview & Scope
 
 This package includes functions that provide several different types of
@@ -53,7 +49,8 @@ devtools::install_github("UBC-MDS/Rmagine")
 
 For additional documentation and usage examples please refer to the
 [Introduction to image filtering with
-Rmagine](vignettes/Rmagine-vignette.html) page.
+Rmagine](https://htmlpreview.github.io/vignettes/Rmagine-vignette.html)
+page.
 
 ### Using the Vignette Filter
 
