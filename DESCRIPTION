@@ -27,4 +27,7 @@ Imports:
     magrittr
 RoxygenNote: 7.0.2
 Suggests: 
-    testthat
+    testthat,
+    covr
+URL: https://github.com/UBC-MDS/Rmagine
+BugReports: https://github.com/UBC-MDS/Rmagine/issues
