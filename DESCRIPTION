@@ -18,15 +18,16 @@ Authors@R:
            family = "Trehan",
            role = c("aut", "cre"),
            email = "sukriti1394@gmail.com")
-Description: Image Manipulation Package
+Description: This package has functions that take an image as an input and saves images with selected filter/transformation applied.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     imager,
-    testthat,
     magrittr
+RoxygenNote: 7.0.2
 Suggests: 
     covr
+    testthat
 URL: https://github.com/UBC-MDS/Rmagine
 BugReports: https://github.com/UBC-MDS/Rmagine/issues

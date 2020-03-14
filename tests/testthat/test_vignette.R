@@ -1,5 +1,6 @@
 # This script tests the vignette function
 library(testthat)
+library(imager)
 
 context("vignette_filter")
 
@@ -26,5 +27,5 @@ test_that("Test that image loads succesfully", {
 returned_arr_vignette <- vignette_filter(test_image)
 
 test_that("Test for correct dimensions of output array", {
-  expect_equal(dim(returned_arr_vignette), dim(load.image('../imgs/coronado_beach.png')))
+  expect_equal(dim(returned_arr_vignette), dim(imager::load.image('../imgs/coronado_beach.png')))
 })
