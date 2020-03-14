@@ -5,22 +5,26 @@ Authors@R:
     person(given = "Katie",
            family = "Birchard",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "birchardkatie@gmail.com")
     person(given = "Trevor",
            family = "Kwan",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "tktrevorkwan@gmail.com")
     person(given = "Brendon",
            family = "Campbell",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "brendon.d.campbell@gmail.com")
     person(given = "Sukriti",
            family = "Trehan",
            role = c("aut", "cre"),
            email = "sukriti1394@gmail.com")
-Description: Image Manipulation Package
+Description: This package has functions that take an image as an input and saves images with selected filter/transformation applied.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    imager,
+    magrittr
+RoxygenNote: 7.0.2
 Suggests: 
     testthat
