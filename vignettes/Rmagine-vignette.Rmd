@@ -40,7 +40,7 @@ tunnel_filter(image_path, k, rot)
 
 #### Example
 
-- `tunnel_filter("imgs/coronado_beach.jpeg", 0.5, -0.2)`
+- `tunnel_filter("imgs/coronado_beach.jpeg", -0.2)`
 ![Tunnel Effect](imgs/tunnel.jpg)
 
 ### Using Colour Filters
