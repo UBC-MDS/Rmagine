@@ -1,6 +1,10 @@
 
 # Rmagine
 
+  <!-- badges: start -->
+  [![R build status](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/Rmagine/actions)
+  <!-- badges: end -->
+
 ## Package Overview & Scope
 
 This package includes functions that provide several different types of

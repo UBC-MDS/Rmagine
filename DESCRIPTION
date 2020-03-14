@@ -28,6 +28,9 @@ Imports:
 RoxygenNote: 7.0.2
 Suggests: 
     testthat,
+    covr,
     knitr,
     rmarkdown
+URL: https://github.com/UBC-MDS/Rmagine
+BugReports: https://github.com/UBC-MDS/Rmagine/issues
 VignetteBuilder: knitr
