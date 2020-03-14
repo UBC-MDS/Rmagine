@@ -1,4 +1,6 @@
-
+<!-- badges: start -->
+[![R build status](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/Rmagine/actions)
+<!-- badges: end -->
 # Rmagine
 
 ## Package Overview & Scope
