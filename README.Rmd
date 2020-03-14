@@ -15,22 +15,18 @@ knitr::opts_chunk$set(
 
 ## Package Overview & Scope
 
-We intend to design functions that provide several different types of visual manipulations to an input image. Note the initial design will accept single images as inputs, but we intend to consider enhancing the package to apply the effects in bulk to a batch of input images. 
+This package includes functions that provide several different types of visual manipulations to an input image.
 
 ## Features
 
-In this package we intend to create four main functions that accept an image as input and apply different types of manipulations and provide a new output image as summarized below:
+This package includes four main functions that accept an image as input and apply different types of manipulations and provide a new output image as summarized below:
 
-1. **Tunnel filter**: produces an image with strong visual distortion intended to create a tunnel or pincushion effect
-    - *Stretch goal*: 'barrel' distortion, effectively the inverse of tunnel distortion
-2. **Colour filters**: produces an image with different user-specified colour distortions (ex: grayscale tone)
-    - *Stretch goal*: allowing the user to specify the strength of the effect via a parameter
+1. **Tunnel distortion**: produces an image with strong visual distortion intended to create a tunnel or pincushion effect
+2. **Colour filters**: produces an image with different user-specified colour distortions (ex: blue tone)
 3. **Edge detection**: identifies edges by looking at where the image brightness changes sharply, and produces a black and white image highlighting the locations of these edges
-    - *Stretch goal*: a more customizable, artistic colourized edge detection filter that would allow the user to specify desired colours for the output image with parameters  (beyond the default black and white) 
 4. **Vignetting**: produces an image with reduced brightness around the periphery compared to the image center
-    - *Stretch goal*: allow the user to specify a focal point location (other than the centre) via parameter, around which the vignetting effect should be applied
 
-**Package data:** We plan to include a small set of our own photos in the package as sample images for use with the package functions
+**Package data:** A small set of example photos are included with the package for testing the functions, with some usage examples outlined below.
 
 
 ## Our Package in the R Ecosystem
@@ -49,85 +45,33 @@ devtools::install_github("UBC-MDS/Rmagine")
 
 ## Usage
 
-### Tunnel Filter
+For additional documentation and usage examples please refer to the [Introduction to image filtering with Rmagine](http://htmlpreview.github.com/?https://github.com/UBC-MDS/Rmagine/blob/brendon-vignette/vignettes/Rmagine-vignette.html) page.
 
-```r
-library(Rmagine)
-tunnel_filter(image_path, k, rot)
-```
-
-#### Arguments
-
-- `image_path`: file path of the input image (string)
-- `k`: distortion coefficient (float, optional). If not specified, defaults to 0.5
-- `rot`: rotation degree holding value between -0.5 and 0.5 (float, optional). If not specified, defaults to 0.5
-
-#### Output
-
-- Saves the image with tunnel filter applied to the current working directory
-
-#### Example
-
-- `tunnel_filter("tests/imgs/coronado_beach.jpeg", 0.6, 0.3)`
-
-### Colour Filter
-
-```r
-library(Rmagine)
-colour_filters(image, tone)
-```
-
-#### Arguments
-
-- `image`: file path of the input image (string)
-- `tone`: colour filter to be applied to the image (string, optional) 'grayscale', 'red_tone', 'green_tone', 'blue_tone', 'negative'. If not specified, defaults to 'grayscale'
-
-#### Output
-
-- Saves the image with colour filter applied to the current working directory
-
-#### Example
-
-- `colour_filters("tests/imgs/coronado_beach.jpeg", 'red_tone')`
-
-### Edge Detection
-
-```r
-library(Rmagine)
-edge_detection(image_path)
-```
-
-#### Arguments
-
-- `image_path`: file path of the input image (string)
-
-#### Output
-
-- Saves the image with edge detection filter applied to the current working directory
-
-#### Example
-
-- `edge_detection("tests/imgs/coronado_beach.jpeg")`
-
-### Vignetting
+### Using the Vignette Filter
 
 ```r
 library(Rmagine)
 vignette_filter(image_path, strength)
 ```
 
+This function produces an image with reduced brightness around the periphery compared to the image center.
+
 #### Arguments
 
 - `image_path`: file path of the input image (string)
 - `strength`: parameter for strength of the dimming effect (double, optional). If not specified, defaults to 1.0
 
-#### Output
-
-- Saves the image with vignetting applied at specified strength to the current working directory
-
 #### Example
 
-- `vignette_filter("tests/imgs/coronado_beach.jpeg", 0.9)`
+Here's an input photo taken at Coronado Beach, San Diego:
+![Sample Image](vignettes/imgs/coronado_beach.jpeg)
+
+And here's that image after applying the vignette filter:
+
+`vignette_filter("imgs/coronado_beach.jpeg", 1.0)`
+![Vignette Effect](vignettes/imgs/vignette.jpeg)
+
+
 
 ## Package Dependencies
 
