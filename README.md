@@ -1,14 +1,8 @@
 
 # Rmagine
 
-<<<<<<< HEAD
-  <!-- badges: start -->
-![R-CMD-check](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg?branch=master)
-  <!-- badges: end -->
-=======
 [![codecov](https://codecov.io/gh/UBC-MDS/Rmagine/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/Rmagine)
 ![R-CMD-check](https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg)
->>>>>>> 93911e99e4e2830b42cceca423c2a7289c3c5362
 
 ## Package Overview & Scope
 
@@ -59,7 +53,7 @@ devtools::install_github("UBC-MDS/Rmagine")
 For additional documentation and usage examples please refer to the
 [Introduction to image filtering with
 Rmagine](http://htmlpreview.github.com/?https://github.com/UBC-MDS/Rmagine/blob/brendon-vignette/vignettes/Rmagine-vignette.html)
-page.
+page and [pkgdown documentation](https://ubc-mds.github.io/Rmagine/) page.
 
 ### Using the Vignette Filter
 
