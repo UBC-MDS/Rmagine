@@ -40,6 +40,11 @@ test_that("Strength is not valid", {
                "Error: strength must be a float greater than 0 and less than or equal to 2")
 })
 
+test_that("Return file name must be a string", {
+  expect_error(colour_filters(test_image, return_file_name = 123),
+               "Error: Output file name must be a string")
+})
+
 test_that("Inavlid return file name. File name must end with .jpg, .png or .jpeg", {
   expect_error(colour_filters(test_image, return_file_name = 'file'),
                "Error: Path given must end with .png, .jpg, or .jpeg")

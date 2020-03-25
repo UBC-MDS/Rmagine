@@ -20,7 +20,7 @@ utils::globalVariables(c("xy"))
 #' @example
 #' edge_detection("imgs/pic.jpg")
 
-edge_detection <- function(image_path, return_file_name = "colour_filter.jpeg", dest_folder = "transformed_imgs/"){
+edge_detection <- function(image_path, return_file_name = "edge.jpeg", dest_folder = "transformed_imgs/"){
 
   # Exception handling
   if(!is.character(image_path)) {
@@ -33,6 +33,10 @@ edge_detection <- function(image_path, return_file_name = "colour_filter.jpeg", 
 
   if (!endsWith(image_path, ".png") & !endsWith(image_path, ".jpeg") & !endsWith(image_path, ".jpg")){
     stop("Image format must be jpg or jpeg.")
+  }
+
+  if(!is.character(return_file_name)){
+    stop("Error: Output file name must be a string")
   }
 
   if(!endsWith(tolower(return_file_name), "jpg") & !endsWith(tolower(return_file_name), "png") & !endsWith(tolower(return_file_name), "jpeg")){
@@ -61,7 +65,7 @@ edge_detection <- function(image_path, return_file_name = "colour_filter.jpeg", 
   # save image as edge_detection_image.jpg
   imager::save.image(image, file = paste0(dest_folder, return_file_name))
 
-  print("The filtered image has been saved to the working directory")
+  print("The filtered image has been saved to the specified directory")
 
   return(image)
 

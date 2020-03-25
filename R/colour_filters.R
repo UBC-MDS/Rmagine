@@ -22,7 +22,7 @@
 #'
 #' @importFrom magrittr %>%
 
-colour_filters <- function(image, tone="grayscale", strength = 1, return_file_name = "colour_filter.jpeg", dest_folder = "transformed_imgs/"){
+colour_filters <- function(image, tone="grayscale", strength = 1, return_file_name = "colour.jpeg", dest_folder = "transformed_imgs/"){
 
   ## unit tests
   if(!is.character(image)){
@@ -47,6 +47,10 @@ colour_filters <- function(image, tone="grayscale", strength = 1, return_file_na
 
   if((strength <= 0) | (strength > 2)){
     stop("Error: strength must be a float greater than 0 and less than or equal to 2")
+  }
+
+  if(!is.character(return_file_name)){
+    stop("Error: Output file name must be a string")
   }
 
   if(!endsWith(tolower(return_file_name), "jpg") & !endsWith(tolower(return_file_name), "png") & !endsWith(tolower(return_file_name), "jpeg")){
@@ -102,7 +106,7 @@ colour_filters <- function(image, tone="grayscale", strength = 1, return_file_na
   }
   imager::save.image(final_img_array, file = paste0(dest_folder, return_file_name))
 
-  print("The filtered image has been saved to the working directory")
+  print("The filtered image has been saved to the specified directory")
   return(im_array)
 }
 
