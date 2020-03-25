@@ -30,11 +30,31 @@ test_that("Argument tone is not valid", {
                "Invalid colour tone for filtering. Choose between: 'grayscale', 'negative', 'blue_tone', 'green_tone', 'red_tone'")
 })
 
-returned_arr_grayscale <- colour_filters(test_image)
-returned_arr_negative <- colour_filters(test_image, tone = "negative")
-returned_arr_red <- colour_filters(test_image, tone = "red_tone")
-returned_arr_blue <- colour_filters(test_image, tone = "blue_tone")
-returned_arr_green <- colour_filters(test_image, tone = "green_tone")
+test_that("Strength must be a float", {
+  expect_error(colour_filters(test_image, strength = 'high'),
+               "Error: Strength must be a double")
+})
+
+test_that("Strength is not valid", {
+  expect_error(colour_filters(test_image, strength = 10),
+               "Error: strength must be a float greater than 0 and less than or equal to 2")
+})
+
+test_that("Inavlid return file name. File name must end with .jpg, .png or .jpeg", {
+  expect_error(colour_filters(test_image, return_file_name = 'file'),
+               "Error: Path given must end with .png, .jpg, or .jpeg")
+})
+
+test_that("Inavlid destination folder. Must be a string and an existing directory", {
+  expect_error(colour_filters(test_image, dest_folder = 1),
+               "Error: Destination folder must be a string")
+})
+
+returned_arr_grayscale <- colour_filters(test_image, dest_folder = "")
+returned_arr_negative <- colour_filters(test_image, tone = "negative", dest_folder = "")
+returned_arr_red <- colour_filters(test_image, tone = "red_tone", dest_folder = "")
+returned_arr_blue <- colour_filters(test_image, tone = "blue_tone", dest_folder = "")
+returned_arr_green <- colour_filters(test_image, tone = "green_tone", dest_folder = "")
 
 test_that("Test for correct dimensions of output array", {
   expect_equal(dim(returned_arr_grayscale)[4], 1)

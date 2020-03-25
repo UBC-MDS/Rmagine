@@ -10,7 +10,7 @@ test_not_image <- "../imgs/coronado_beach.svg"
 test_image_url <- "www.image.com"
 
 test_that("Filepath must be a string", {
-  expect_error(edge_detection(3), 
+  expect_error(edge_detection(3),
                "Image file path must be a string")
 })
 
