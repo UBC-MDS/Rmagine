@@ -4,12 +4,21 @@
 \alias{tunnel_filter}
 \title{Apply tunnel distortion filter to a given image.}
 \usage{
-tunnel_filter(image_path, rot = 0.5)
+tunnel_filter(
+  image_path,
+  rot = 0.5,
+  return_file_name = "tunnel.jpeg",
+  dest_folder = "transformed_imgs/"
+)
 }
 \arguments{
 \item{image_path}{string: the local file path for the image to which the filter will be applied.}
 
 \item{rot}{double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.}
+
+\item{return_file_name}{string: File name for the transformed image to be saved}
+
+\item{dest_folder}{string: Destiname folder name for storing transformed images}
 }
 \value{
 location of saved image with filter applied.

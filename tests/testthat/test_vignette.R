@@ -17,6 +17,12 @@ test_that("Test that the input parameters are valid", {
                "Image file path can't be a URL, provide a local file path.")
   expect_error(vignette_filter(image_path='coronado_beach.jpeg',strength=-5),
                "Vignette strength can't be negative.")
+  expect_error(vignette_filter(test_image, return_file_name = 123),
+               "Error: Output file name must be a string")
+  expect_error(vignette_filter(image_path=test_image, return_file_name = 'file'),
+               "Error: Path given must end with .png, .jpg, or .jpeg")
+  expect_error(vignette_filter(test_image, dest_folder = 1),
+               "Error: Destination folder must be a string")
 })
 
 test_that("Test that image loads succesfully", {
@@ -24,7 +30,7 @@ test_that("Test that image loads succesfully", {
                "File not found")
 })
 
-returned_arr_vignette <- vignette_filter(test_image)
+returned_arr_vignette <- vignette_filter(test_image, dest_folder = "")
 
 test_that("Test for correct dimensions of output array", {
   expect_equal(dim(returned_arr_vignette), dim(imager::load.image('../imgs/coronado_beach.png')))

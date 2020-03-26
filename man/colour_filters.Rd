@@ -4,17 +4,29 @@
 \alias{colour_filters}
 \title{Apply colour filter to given image}
 \usage{
-colour_filters(image, tone = "grayscale")
+colour_filters(
+  image,
+  tone = "grayscale",
+  strength = 1,
+  return_file_name = "colour.jpeg",
+  dest_folder = "transformed_imgs/"
+)
 }
 \arguments{
 \item{image}{string: The local file path for image to which filter will be applied}
 
 \item{tone}{string: Colour filter to be applied to the image. Options:'grayscale', 'blue_tone', 'green_tone', 'red_tone', 'negative'. Default: 'grayscale'}
+
+\item{strength}{double: Strength of the colour filter being applied (0-2]. Valid for 'blue_tone', 'green_tone', 'red_tone'. Default: 1}
+
+\item{return_file_name}{string: File name for the transformed image to be saved}
+
+\item{dest_folder}{string: Destiname folder name for storing transformed images}
 }
 \value{
 array: altered image array returned for the input colour filter
 }
 \description{
-Saves the given image in the current working directory with the
+Saves the given image in the user-specified directory with the
 user-specified color filter applied and returns the altered image array.
 }
