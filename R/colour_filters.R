@@ -109,5 +109,3 @@ colour_filters <- function(image, tone="grayscale", strength = 1, return_file_na
   print("The filtered image has been saved to the specified directory")
   return(im_array)
 }
-
-
