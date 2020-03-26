@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Apply tunnel distortion filter to a given image. — tunnel_filter • Rmagine</title>
+<title>Apply edge detection to given image — edge_detection • Rmagine</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Apply tunnel distortion filter to a given image. — tunnel_filter" />
-<meta property="og:description" content="Returns the given image with the user-specified distortion applied." />
+<meta property="og:title" content="Apply edge detection to given image — edge_detection" />
+<meta property="og:description" content="Returns the given image with greyscale edge detection applied." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,19 +117,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Apply tunnel distortion filter to a given image.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/Rmagine/blob/master/R/tunnel_filter.R'><code>R/tunnel_filter.R</code></a></small>
-    <div class="hidden name"><code>tunnel_filter.Rd</code></div>
+    <h1>Apply edge detection to given image</h1>
+    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/Rmagine/blob/master/R/edge_detection.R'><code>R/edge_detection.R</code></a></small>
+    <div class="hidden name"><code>edge_detection.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns the given image with the user-specified distortion applied.</p>
+    <p>Returns the given image with greyscale edge detection applied.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tunnel_filter</span>(
+    <pre class="usage"><span class='fu'>edge_detection</span>(
   <span class='no'>image_path</span>,
-  <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>return_file_name</span> <span class='kw'>=</span> <span class='st'>"tunnel.jpeg"</span>,
+  <span class='kw'>return_file_name</span> <span class='kw'>=</span> <span class='st'>"edge.jpeg"</span>,
   <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='st'>"transformed_imgs/"</span>
 )</pre>
 
@@ -138,11 +137,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>image_path</th>
-      <td><p>string: the local file path for the image to which the filter will be applied.</p></td>
-    </tr>
-    <tr>
-      <th>rot</th>
-      <td><p>double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.</p></td>
+      <td><p>string: The local file path for an image of png, jpg, or jpeg format to which edge detection filter will be applied.</p></td>
     </tr>
     <tr>
       <th>return_file_name</th>
@@ -156,7 +151,7 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>location of saved image with filter applied.</p>
+    <p>array: image array with edge_detection filter applied.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

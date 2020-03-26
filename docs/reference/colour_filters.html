@@ -36,7 +36,7 @@
 
 
 <meta property="og:title" content="Apply colour filter to given image — colour_filters" />
-<meta property="og:description" content="Saves the given image in the current working directory with the
+<meta property="og:description" content="Saves the given image in the user-specified directory with the
 user-specified color filter applied and returns the altered image array." />
 <meta name="twitter:card" content="summary" />
 
@@ -85,6 +85,18 @@ user-specified color filter applied and returns the altered image array." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Rmagine-vignette.html">Introduction to image filtering with Rmagine</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -112,11 +124,17 @@ user-specified color filter applied and returns the altered image array." />
     </div>
 
     <div class="ref-description">
-    <p>Saves the given image in the current working directory with the
+    <p>Saves the given image in the user-specified directory with the
 user-specified color filter applied and returns the altered image array.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>colour_filters</span>(<span class='no'>image</span>, <span class='kw'>tone</span> <span class='kw'>=</span> <span class='st'>"grayscale"</span>)</pre>
+    <pre class="usage"><span class='fu'>colour_filters</span>(
+  <span class='no'>image</span>,
+  <span class='kw'>tone</span> <span class='kw'>=</span> <span class='st'>"grayscale"</span>,
+  <span class='kw'>strength</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>return_file_name</span> <span class='kw'>=</span> <span class='st'>"colour.jpeg"</span>,
+  <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='st'>"transformed_imgs/"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -128,6 +146,18 @@ user-specified color filter applied and returns the altered image array.</p>
     <tr>
       <th>tone</th>
       <td><p>string: Colour filter to be applied to the image. Options:'grayscale', 'blue_tone', 'green_tone', 'red_tone', 'negative'. Default: 'grayscale'</p></td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td><p>double: Strength of the colour filter being applied (0-2]. Valid for 'blue_tone', 'green_tone', 'red_tone'. Default: 1</p></td>
+    </tr>
+    <tr>
+      <th>return_file_name</th>
+      <td><p>string: File name for the transformed image to be saved</p></td>
+    </tr>
+    <tr>
+      <th>dest_folder</th>
+      <td><p>string: Destiname folder name for storing transformed images</p></td>
     </tr>
     </table>
 

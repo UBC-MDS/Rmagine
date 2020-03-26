@@ -1,3 +1,5 @@
+context("tunnel_filter")
+
 # Load helper image
 test_image <- "../imgs/coronado_beach.png"
 test_not_image <- "../imgs/coronado_beach.svg"
