@@ -4,12 +4,21 @@
 \alias{vignette_filter}
 \title{Apply a vignetting filter to a given image}
 \usage{
-vignette_filter(image_path, strength = 1)
+vignette_filter(
+  image_path,
+  strength = 1,
+  return_file_name = "vignette.jpeg",
+  dest_folder = "transformed_imgs/"
+)
 }
 \arguments{
 \item{image_path}{string: The local file path for the image to which the filter will be applied.}
 
 \item{strength}{double: parameter for the strength of the dimming effect. Default: 1.0.}
+
+\item{return_file_name}{string: File name for the transformed image to be saved}
+
+\item{dest_folder}{string: Destiname folder name for storing transformed images}
 }
 \value{
 array: image array with the desired distortion applied.

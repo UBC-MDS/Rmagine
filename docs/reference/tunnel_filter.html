@@ -129,7 +129,12 @@
     <p>Returns the given image with the user-specified distortion applied.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tunnel_filter</span>(<span class='no'>image_path</span>, <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</pre>
+    <pre class="usage"><span class='fu'>tunnel_filter</span>(
+  <span class='no'>image_path</span>,
+  <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>return_file_name</span> <span class='kw'>=</span> <span class='st'>"tunnel.jpeg"</span>,
+  <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='st'>"transformed_imgs/"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -141,6 +146,14 @@
     <tr>
       <th>rot</th>
       <td><p>double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.</p></td>
+    </tr>
+    <tr>
+      <th>return_file_name</th>
+      <td><p>string: File name for the transformed image to be saved</p></td>
+    </tr>
+    <tr>
+      <th>dest_folder</th>
+      <td><p>string: Destiname folder name for storing transformed images</p></td>
     </tr>
     </table>
 
