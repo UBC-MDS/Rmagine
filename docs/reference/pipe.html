@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Apply tunnel distortion filter to a given image. — tunnel_filter • Rmagine</title>
+<title>Pipe operator — %&gt;% • Rmagine</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Apply tunnel distortion filter to a given image. — tunnel_filter" />
-<meta property="og:description" content="Returns the given image with the user-specified distortion applied." />
+<meta property="og:title" content="Pipe operator — %&gt;%" />
+<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -117,53 +117,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Apply tunnel distortion filter to a given image.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/Rmagine/blob/master/R/tunnel_filter.R'><code>R/tunnel_filter.R</code></a></small>
-    <div class="hidden name"><code>tunnel_filter.Rd</code></div>
+    <h1>Pipe operator</h1>
+    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/Rmagine/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
+    <div class="hidden name"><code>pipe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns the given image with the user-specified distortion applied.</p>
+    <p>See <code>magrittr::%&gt;%</code> for details.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tunnel_filter</span>(
-  <span class='no'>image_path</span>,
-  <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>return_file_name</span> <span class='kw'>=</span> <span class='st'>"tunnel.jpeg"</span>,
-  <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='st'>"transformed_imgs/"</span>
-)</pre>
+    <pre class="usage"><span class='no'>lhs</span> <span class='kw'>%&gt;%</span> <span class='no'>rhs</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>image_path</th>
-      <td><p>string: the local file path for the image to which the filter will be applied.</p></td>
-    </tr>
-    <tr>
-      <th>rot</th>
-      <td><p>double: Rotation degree holding value between -0.5 and 0.5. Default: 0.5.</p></td>
-    </tr>
-    <tr>
-      <th>return_file_name</th>
-      <td><p>string: File name for the transformed image to be saved</p></td>
-    </tr>
-    <tr>
-      <th>dest_folder</th>
-      <td><p>string: Destiname folder name for storing transformed images</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>location of saved image with filter applied.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
     </ul>
 
   </div>

@@ -46,6 +46,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Rmagine-vignette.html">Introduction to image filtering with Rmagine</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -69,47 +81,27 @@
 <div id="rmagine" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#rmagine" class="anchor"></a>Rmagine</h1></div>
-
+<p><a href="https://codecov.io/gh/UBC-MDS/Rmagine"><img src="https://codecov.io/gh/UBC-MDS/Rmagine/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></p>
 <div id="package-overview-scope" class="section level2">
 <h2 class="hasAnchor">
 <a href="#package-overview-scope" class="anchor"></a>Package Overview &amp; Scope</h2>
-<p>We intend to design functions that provide several different types of visual manipulations to an input image. Note the initial design will accept single images as inputs, but we intend to consider enhancing the package to apply the effects in bulk to a batch of input images.</p>
+<p>This package includes functions that provide several different types of visual manipulations to an input image.</p>
 </div>
 <div id="features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#features" class="anchor"></a>Features</h2>
-<p>In this package we intend to create four main functions that accept an image as input and apply different types of manipulations and provide a new output image as summarized below:</p>
+<p>This package includes four main functions that accept an image as input and apply different types of manipulations and provide a new output image as summarized below:</p>
 <ol>
 <li>
-<strong>Tunnel filter</strong>: produces an image with strong visual distortion intended to create a tunnel or pincushion effect
-<ul>
+<strong>Tunnel distortion</strong>: produces an image with strong visual distortion intended to create a tunnel or pincushion effect</li>
 <li>
-<em>Stretch goal</em>: ‘barrel’ distortion, effectively the inverse of tunnel distortion</li>
-</ul>
-</li>
+<strong>Colour filters</strong>: produces an image with different user-specified colour distortions (ex: blue tone)</li>
 <li>
-<strong>Colour filters</strong>: produces an image with different user-specified colour distortions (ex: grayscale tone)
-<ul>
+<strong>Edge detection</strong>: identifies edges by looking at where the image brightness changes sharply, and produces a black and white image highlighting the locations of these edges</li>
 <li>
-<em>Stretch goal</em>: allowing the user to specify the strength of the effect via a parameter</li>
-</ul>
-</li>
-<li>
-<strong>Edge detection</strong>: identifies edges by looking at where the image brightness changes sharply, and produces a black and white image highlighting the locations of these edges
-<ul>
-<li>
-<em>Stretch goal</em>: a more customizable, artistic colourized edge detection filter that would allow the user to specify desired colours for the output image with parameters (beyond the default black and white)</li>
-</ul>
-</li>
-<li>
-<strong>Vignetting</strong>: produces an image with reduced brightness around the periphery compared to the image center
-<ul>
-<li>
-<em>Stretch goal</em>: allow the user to specify a focal point location (other than the centre) via parameter, around which the vignetting effect should be applied</li>
-</ul>
-</li>
+<strong>Vignetting</strong>: produces an image with reduced brightness around the periphery compared to the image center</li>
 </ol>
-<p><strong>Package data:</strong> We plan to include a small set of our own photos in the package as sample images for use with the package functions</p>
+<p><strong>Package data:</strong> A small set of example photos are included with the package for testing the functions, with some usage examples outlined below.</p>
 </div>
 <div id="our-package-in-the-r-ecosystem" class="section level2">
 <h2 class="hasAnchor">
@@ -126,11 +118,13 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<div id="tunnel-filter" class="section level3">
+<p>For additional documentation and usage examples please refer to the <a href="http://htmlpreview.github.com/?https://github.com/UBC-MDS/Rmagine/blob/brendon-vignette/vignettes/Rmagine-vignette.html">Introduction to image filtering with Rmagine</a> page and <a href="https://ubc-mds.github.io/Rmagine/">pkgdown documentation</a> page.</p>
+<div id="using-the-vignette-filter" class="section level3">
 <h3 class="hasAnchor">
-<a href="#tunnel-filter" class="anchor"></a>Tunnel Filter</h3>
+<a href="#using-the-vignette-filter" class="anchor"></a>Using the Vignette Filter</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(Rmagine)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/tunnel_filter.html">tunnel_filter</a></span>(image_path, k, rot)</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/vignette_filter.html">vignette_filter</a></span>(image_path, strength)</a></code></pre></div>
+<p>This function produces an image with reduced brightness around the periphery compared to the image center.</p>
 <div id="arguments" class="section level4">
 <h4 class="hasAnchor">
 <a href="#arguments" class="anchor"></a>Arguments</h4>
@@ -138,112 +132,15 @@
 <li>
 <code>image_path</code>: file path of the input image (string)</li>
 <li>
-<code>k</code>: distortion coefficient (float, optional). If not specified, defaults to 0.5</li>
-<li>
-<code>rot</code>: rotation degree holding value between -0.5 and 0.5 (float, optional). If not specified, defaults to 0.5</li>
-</ul>
-</div>
-<div id="output" class="section level4">
-<h4 class="hasAnchor">
-<a href="#output" class="anchor"></a>Output</h4>
-<ul>
-<li>Saves the image with tunnel filter applied to the current working directory</li>
+<code>strength</code>: parameter for strength of the dimming effect (double, optional). If not specified, defaults to 1.0</li>
 </ul>
 </div>
 <div id="example" class="section level4">
 <h4 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h4>
-<ul>
-<li><code><a href="reference/tunnel_filter.html">tunnel_filter("tests/imgs/coronado_beach.jpeg", 0.6, 0.3)</a></code></li>
-</ul>
-</div>
-</div>
-<div id="colour-filter" class="section level3">
-<h3 class="hasAnchor">
-<a href="#colour-filter" class="anchor"></a>Colour Filter</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(Rmagine)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/colour_filters.html">colour_filters</a></span>(image, tone)</a></code></pre></div>
-<div id="arguments-1" class="section level4">
-<h4 class="hasAnchor">
-<a href="#arguments-1" class="anchor"></a>Arguments</h4>
-<ul>
-<li>
-<code>image</code>: file path of the input image (string)</li>
-<li>
-<code>tone</code>: colour filter to be applied to the image (string, optional) ‘grayscale’, ‘red_tone’, ‘green_tone’, ‘blue_tone’, ‘negative’. If not specified, defaults to ‘grayscale’</li>
-</ul>
-</div>
-<div id="output-1" class="section level4">
-<h4 class="hasAnchor">
-<a href="#output-1" class="anchor"></a>Output</h4>
-<ul>
-<li>Saves the image with colour filter applied to the current working directory</li>
-</ul>
-</div>
-<div id="example-1" class="section level4">
-<h4 class="hasAnchor">
-<a href="#example-1" class="anchor"></a>Example</h4>
-<ul>
-<li><code><a href="reference/colour_filters.html">colour_filters("tests/imgs/coronado_beach.jpeg", 'red_tone')</a></code></li>
-</ul>
-</div>
-</div>
-<div id="edge-detection" class="section level3">
-<h3 class="hasAnchor">
-<a href="#edge-detection" class="anchor"></a>Edge Detection</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(Rmagine)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">edge_detection</span>(image_path)</a></code></pre></div>
-<div id="arguments-2" class="section level4">
-<h4 class="hasAnchor">
-<a href="#arguments-2" class="anchor"></a>Arguments</h4>
-<ul>
-<li>
-<code>image_path</code>: file path of the input image (string)</li>
-</ul>
-</div>
-<div id="output-2" class="section level4">
-<h4 class="hasAnchor">
-<a href="#output-2" class="anchor"></a>Output</h4>
-<ul>
-<li>Saves the image with edge detection filter applied to the current working directory</li>
-</ul>
-</div>
-<div id="example-2" class="section level4">
-<h4 class="hasAnchor">
-<a href="#example-2" class="anchor"></a>Example</h4>
-<ul>
-<li><code>edge_detection("tests/imgs/coronado_beach.jpeg")</code></li>
-</ul>
-</div>
-</div>
-<div id="vignetting" class="section level3">
-<h3 class="hasAnchor">
-<a href="#vignetting" class="anchor"></a>Vignetting</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(Rmagine)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/vignette_filter.html">vignette_filter</a></span>(image_path, strength)</a></code></pre></div>
-<div id="arguments-3" class="section level4">
-<h4 class="hasAnchor">
-<a href="#arguments-3" class="anchor"></a>Arguments</h4>
-<ul>
-<li>
-<code>image_path</code>: file path of the input image (string)</li>
-<li>
-<code>strength</code>: parameter for strength of the dimming effect (double, optional). If not specified, defaults to 1.0</li>
-</ul>
-</div>
-<div id="output-3" class="section level4">
-<h4 class="hasAnchor">
-<a href="#output-3" class="anchor"></a>Output</h4>
-<ul>
-<li>Saves the image with vignetting applied at specified strength to the current working directory</li>
-</ul>
-</div>
-<div id="example-3" class="section level4">
-<h4 class="hasAnchor">
-<a href="#example-3" class="anchor"></a>Example</h4>
-<ul>
-<li><code><a href="reference/vignette_filter.html">vignette_filter("tests/imgs/coronado_beach.jpeg", 0.9)</a></code></li>
-</ul>
+<p>Here’s an input photo taken at Coronado Beach, San Diego: <img src="articles/imgs/coronado_beach.jpeg" alt="Sample Image"></p>
+<p>And here’s that image after applying the vignette filter:</p>
+<p><code><a href="reference/vignette_filter.html">vignette_filter("imgs/coronado_beach.jpeg", 1.0)</a></code> <img src="articles/imgs/vignette.jpeg" alt="Vignette Effect"></p>
 </div>
 </div>
 </div>
@@ -288,13 +185,7 @@
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github.com/UBC-MDS/Rmagine/actions"><img src="https://github.com/UBC-MDS/Rmagine/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-</ul>
-</div>
-</div>
+  </div>
 </div>
 
 
