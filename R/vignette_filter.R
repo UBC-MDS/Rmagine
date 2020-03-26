@@ -30,7 +30,7 @@ vignette_filter <- function(image_path, strength=1.0) {
   }
 
   if (strength <= 0){
-    stop("Vignette strength can't be negative.")
+    stop("Vignette strength must be a positive value.")
   }
 
   # read in image from path
