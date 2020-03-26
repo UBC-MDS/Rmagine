@@ -16,7 +16,7 @@ test_that("Test that the input parameters are valid", {
   expect_error(vignette_filter(image_path="http:image.png"),
                "Image file path can't be a URL, provide a local file path.")
   expect_error(vignette_filter(image_path='coronado_beach.jpeg',strength=-5),
-               "Vignette strength can't be negative.")
+               "Vignette strength must be a positive value.")
   expect_error(vignette_filter(test_image, return_file_name = 123),
                "Error: Output file name must be a string")
   expect_error(vignette_filter(image_path=test_image, return_file_name = 'file'),

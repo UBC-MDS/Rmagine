@@ -32,7 +32,7 @@ vignette_filter <- function(image_path, strength=1.0, return_file_name = "vignet
   }
 
   if (strength <= 0){
-    stop("Vignette strength can't be negative.")
+    stop("Vignette strength must be a positive value.")
   }
 
   if(!is.character(return_file_name)){
