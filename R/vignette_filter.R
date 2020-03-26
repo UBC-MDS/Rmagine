@@ -8,6 +8,8 @@
 #'
 #' @param image_path string: The local file path for the image to which the filter will be applied.
 #' @param strength double: parameter for the strength of the dimming effect. Default: 1.0.
+#' @param return_file_name string: File name for the transformed image to be saved
+#' @param dest_folder string: Destiname folder name for storing transformed images
 #'
 #' @return array: image array with the desired distortion applied.
 #' @export
@@ -15,7 +17,7 @@
 #' @example
 #' vignette_filter("imgs/pic.jpg", strength=2.5)
 
-vignette_filter <- function(image_path, strength=1.0) {
+vignette_filter <- function(image_path, strength=1.0, return_file_name = "vignette.jpeg", dest_folder = "transformed_imgs/") {
 
   if(!is.character(image_path)){
     stop("Image file path must be a string.")
@@ -31,6 +33,18 @@ vignette_filter <- function(image_path, strength=1.0) {
 
   if (strength <= 0){
     stop("Vignette strength can't be negative.")
+  }
+
+  if(!is.character(return_file_name)){
+    stop("Error: Output file name must be a string")
+  }
+
+  if(!endsWith(tolower(return_file_name), "jpg") & !endsWith(tolower(return_file_name), "png") & !endsWith(tolower(return_file_name), "jpeg")){
+    stop("Error: Path given must end with .png, .jpg, or .jpeg")
+  }
+
+  if(!is.character(dest_folder)){
+    stop("Error: Destination folder must be a string")
   }
 
   # read in image from path
@@ -62,8 +76,8 @@ vignette_filter <- function(image_path, strength=1.0) {
   }
 
   vignette_image <- imager::as.cimg(vignette_array)
-  imager::save.image(vignette_image,"vignette.jpeg")
-  print("The filtered image has been saved to the working directory.")
+  imager::save.image(vignette_image, file = paste0(dest_folder, return_file_name))
+  print("The filtered image has been saved to the specified directory.")
 
   return(vignette_image)
 }

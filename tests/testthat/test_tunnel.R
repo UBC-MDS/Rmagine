@@ -6,7 +6,7 @@ test_not_image <- "../imgs/coronado_beach.svg"
 test_image_url <- "www.image.jpg"
 
 test_that("Filepath must be a string", {
-  expect_error(tunnel_filter(4), 
+  expect_error(tunnel_filter(4),
                "Image file path must be a string")
 })
 
@@ -30,7 +30,22 @@ test_that("rot must be between -0.5 and 0.5", {
                "Rotation degree must be between -0.5 and 0.5")
 })
 
-returned_array <- tunnel_filter(test_image)
+test_that("Return file name must be a string", {
+  expect_error(tunnel_filter(test_image, return_file_name = 123),
+               "Error: Output file name must be a string")
+})
+
+test_that("Inavlid return file name. File name must end with .jpg, .png or .jpeg", {
+  expect_error(tunnel_filter(test_image, return_file_name = 'file'),
+               "Error: Path given must end with .png, .jpg, or .jpeg")
+})
+
+test_that("Inavlid destination folder. Must be a string and an existing directory", {
+  expect_error(tunnel_filter(test_image, dest_folder = 1),
+               "Error: Destination folder must be a string")
+})
+
+returned_array <- tunnel_filter(test_image, dest_folder = "")
 original_array <- imager::load.image(test_image)
 
 test_that("Output array should be same size as input array", {
